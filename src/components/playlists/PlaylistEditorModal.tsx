@@ -134,9 +134,10 @@ export const PlaylistEditorModal: React.FC = () => {
 
   return (
     <div className="modal-backdrop" onClick={handleClose} role="dialog" aria-modal="true">
-      <div
+      <form
         className="modal-content"
         onClick={(e) => e.stopPropagation()}
+        onSubmit={handleSave}
         style={{ maxWidth: '640px' }}
       >
         <div className="modal-header">
@@ -156,8 +157,7 @@ export const PlaylistEditorModal: React.FC = () => {
           </button>
         </div>
 
-        <form onSubmit={handleSave}>
-          <div className="modal-body">
+        <div className="modal-body">
             {error && (
               <div
                 style={{
@@ -437,12 +437,11 @@ export const PlaylistEditorModal: React.FC = () => {
             <button type="button" className="btn btn-secondary" onClick={handleClose}>
               Cancel
             </button>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" style={{ fontWeight: 800 }}>
               {editingPlaylist ? 'Save Setlist' : 'Create Setlist'}
             </button>
           </div>
-        </form>
-      </div>
+      </form>
     </div>
   );
 };

@@ -290,7 +290,7 @@ export const SongListScreen: React.FC = () => {
                 title="Tap to play or stop metronome"
               >
                 {/* Left: Play button & Song details */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, minWidth: 0 }}>
+                <div className="song-row-details" style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, minWidth: 0 }}>
                   <button
                     type="button"
                     className={`btn btn-icon ${isPlaying ? 'btn-primary' : 'btn-secondary'}`}
@@ -379,6 +379,7 @@ export const SongListScreen: React.FC = () => {
 
                 {/* Right: Actions */}
                 <div
+                  className="song-row-actions"
                   style={{
                     display: 'flex',
                     alignItems: 'center',

@@ -183,7 +183,11 @@ export const SongEditorModal: React.FC = () => {
 
   return (
     <div className="modal-backdrop" onClick={handleClose} role="dialog" aria-modal="true">
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <form
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()}
+        onSubmit={handleSave}
+      >
         <div className="modal-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Music size={22} color="var(--accent-cyan)" />
@@ -201,8 +205,7 @@ export const SongEditorModal: React.FC = () => {
           </button>
         </div>
 
-        <form onSubmit={handleSave}>
-          <div className="modal-body">
+        <div className="modal-body">
             {error && (
               <div
                 style={{
@@ -496,7 +499,7 @@ export const SongEditorModal: React.FC = () => {
           <div className="modal-footer">
             <button
               type="button"
-              className={`btn ${isPreviewing ? 'btn-danger' : 'btn-secondary'}`}
+              className={`btn ${isPreviewing ? 'btn-danger' : 'btn-secondary'} btn-full-mobile`}
               onClick={togglePreview}
               style={{ marginRight: 'auto' }}
             >
@@ -515,12 +518,11 @@ export const SongEditorModal: React.FC = () => {
               Cancel
             </button>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" style={{ fontWeight: 800 }}>
               {editingSong ? 'Save Changes' : 'Create Song'}
             </button>
           </div>
-        </form>
-      </div>
+      </form>
     </div>
   );
 };

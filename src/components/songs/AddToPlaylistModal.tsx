@@ -124,7 +124,7 @@ export const AddToPlaylistModal: React.FC<AddToPlaylistModalProps> = ({
             <label className="form-label" htmlFor="new-playlist-quick">
               Or create new playlist:
             </label>
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <input
                 id="new-playlist-quick"
                 type="text"
@@ -132,12 +132,13 @@ export const AddToPlaylistModal: React.FC<AddToPlaylistModalProps> = ({
                 placeholder="New Setlist Name..."
                 value={newPlaylistName}
                 onChange={(e) => setNewPlaylistName(e.target.value)}
-                style={{ flex: 1 }}
+                style={{ flex: '1 1 200px' }}
               />
               <button
                 type="submit"
                 className="btn btn-primary"
                 disabled={!newPlaylistName.trim()}
+                style={{ flex: '1 1 auto', minHeight: '44px' }}
               >
                 <Plus size={16} /> Create & Add
               </button>
