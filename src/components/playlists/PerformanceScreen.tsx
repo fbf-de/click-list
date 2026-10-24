@@ -147,9 +147,11 @@ export const PerformanceScreen: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100%',
-        padding: '16px',
+        padding: '12px 12px 16px',
         maxWidth: '1200px',
-        margin: '0 auto'
+        margin: '0 auto',
+        boxSizing: 'border-box',
+        width: '100%'
       }}
     >
       {/* Visual Beat Flash Ambient Layer */}
@@ -301,7 +303,7 @@ export const PerformanceScreen: React.FC = () => {
           {/* Giant BPM Display */}
           <div
             style={{
-              margin: '12px 0',
+              margin: '8px 0',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
@@ -310,7 +312,7 @@ export const PerformanceScreen: React.FC = () => {
             <div
               className="font-mono text-gradient"
               style={{
-                fontSize: 'clamp(5rem, 16vw, 9.5rem)',
+                fontSize: 'clamp(3.5rem, 18vw, 9.5rem)',
                 fontWeight: 900,
                 lineHeight: 0.95,
                 letterSpacing: '-0.05em',
@@ -384,10 +386,9 @@ export const PerformanceScreen: React.FC = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '16px',
+              gap: '10px',
               width: '100%',
-              maxWidth: '520px',
-              marginBottom: '20px'
+              marginBottom: '16px'
             }}
           >
             {/* Previous Song */}
@@ -396,10 +397,10 @@ export const PerformanceScreen: React.FC = () => {
               className="btn btn-secondary btn-giant"
               onClick={prevSong}
               disabled={playlistSongs.length <= 1}
-              style={{ flex: 1, minHeight: '68px' }}
+              style={{ flex: '0 0 auto', minHeight: '64px', padding: '12px 16px' }}
               title="Previous Track (Arrow Left)"
             >
-              <SkipBack size={26} />
+              <SkipBack size={24} />
               <span className="hide-on-mobile">PREV</span>
             </button>
 
@@ -419,9 +420,9 @@ export const PerformanceScreen: React.FC = () => {
                 }
               }}
               style={{
-                flex: 2,
-                minHeight: '76px',
-                fontSize: '1.4rem',
+                flex: 1,
+                minHeight: '72px',
+                fontSize: 'clamp(1.1rem, 4vw, 1.4rem)',
                 fontWeight: 900,
                 letterSpacing: '0.04em'
               }}
@@ -429,11 +430,11 @@ export const PerformanceScreen: React.FC = () => {
             >
               {playbackState.isPlaying ? (
                 <>
-                  <Square size={28} fill="currentColor" /> STOP
+                  <Square size={26} fill="currentColor" /> STOP
                 </>
               ) : (
                 <>
-                  <Play size={28} fill="currentColor" /> START
+                  <Play size={26} fill="currentColor" /> START
                 </>
               )}
             </button>
@@ -444,11 +445,11 @@ export const PerformanceScreen: React.FC = () => {
               className="btn btn-secondary btn-giant"
               onClick={nextSong}
               disabled={playlistSongs.length <= 1}
-              style={{ flex: 1, minHeight: '68px' }}
+              style={{ flex: '0 0 auto', minHeight: '64px', padding: '12px 16px' }}
               title="Next Track (Arrow Right)"
             >
               <span className="hide-on-mobile">NEXT</span>
-              <SkipForward size={26} />
+              <SkipForward size={24} />
             </button>
           </div>
 
@@ -636,6 +637,13 @@ export const PerformanceScreen: React.FC = () => {
         @media (max-width: 600px) {
           .hide-on-mobile {
             display: none !important;
+          }
+          .performance-transport {
+            gap: 8px !important;
+          }
+          .performance-transport .btn-giant {
+            padding: 10px 12px !important;
+            min-height: 60px !important;
           }
         }
       `}</style>
